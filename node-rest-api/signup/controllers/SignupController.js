@@ -1,4 +1,4 @@
-const SignupModel = require('..\..\common\models\Signup.js');
+const SignupModel = require('../../common/models/Signup.js');
 
 module.exports = {
     addSignup: (req, res) => {
