@@ -1,5 +1,5 @@
-const Sequelize = require("sequelize");
-const sequelize = new Sequelize()
+const DataTypes = require("sequelize");
+//const sequelize = new Sequelize()
 
 const RestockAlertModel = {
     id: {
