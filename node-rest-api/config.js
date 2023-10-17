@@ -1,10 +1,10 @@
 const api_port = process.env.PORT || 3000
 
 const StatusRoutes = require('./status/routes');
-const SignupRoutes = require('./signup/routes');
+const RestockAlertRoutes = require('./restock-alert/routes');
 
 module.exports = {
     api_port,
     StatusRoutes,
-    SignupRoutes
+    RestockAlertRoutes
 };

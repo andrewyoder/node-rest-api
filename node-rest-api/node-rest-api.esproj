@@ -6,8 +6,8 @@
     </BuildCommand>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="common\" />
-    <Folder Include="signup\" />
     <Folder Include="status\controllers\" />
+    <Folder Include="restock-alert\" />
+    <Folder Include="common\" />
   </ItemGroup>
 </Project>
