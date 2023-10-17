@@ -1,7 +1,7 @@
 const express = require('express');
 const config = require('./config');
 const cors = require('cors');
-const Sequelize = require('seuelize');
+const Sequelize = require('sequelize');
 
 const app = express();
 app.use(express.json());
