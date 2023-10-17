@@ -1,6 +1,7 @@
-const { DataTypes } = require("sequelize");
+const Sequelize = require("sequelize");
+const sequelize = new Sequelize()
 
-const SignupModel = {
+const RestockAlertModel = {
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -29,13 +30,13 @@ const SignupModel = {
 };
 
 module.exports = {
-    initialise: (sequelize) => {
-        this.model = sequelize.define("signup", SignupModel);
+    initialize: (sequelize) => {
+        this.model = sequelize.define("RestockAlert", RestockAlertModel)
     },
-    addSignup: (signup) => {
-        return this.model.create(signup);
+    createAlert: (RestockAlert) => {
+        return this.model.create(RestockAlert);
     },
-    getSignups: () => {
+    getAlerts: () => {
         return this.model.findAll();
     }
 };

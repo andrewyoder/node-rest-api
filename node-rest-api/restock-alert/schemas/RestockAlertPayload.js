@@ -7,12 +7,6 @@ module.exports = {
         email: {
             type: 'string'
         },
-        creationDate: {
-            type: 'string'
-        },
-        alertSent: {
-            type: 'boolean'
-        }
     },
     additionalProperties: false
 };
