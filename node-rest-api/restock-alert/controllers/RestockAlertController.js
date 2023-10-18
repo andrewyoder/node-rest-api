@@ -12,7 +12,7 @@ module.exports = {
 
         return response.status(200).json({
             status: true,
-            data: alert.toJSON(),
+            data: JSON.stringify(alert),
         });
 
         //return RestockAlertModel.createAlert(alert)
