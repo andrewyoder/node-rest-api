@@ -5,7 +5,7 @@ const Sequelize = require('sequelize');
 
 const app = express();
 app.use(express.json());
-//app.use(cors());
+app.use(cors());
 
 // Add Access Control Allow Origin headers
 app.use((req, res, next) => {
