@@ -5,7 +5,7 @@ const Sequelize = require('sequelize');
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+//app.use(cors());
 
 // Add Access Control Allow Origin headers
 app.use((req, res, next) => {
@@ -34,3 +34,5 @@ sequelize
             console.log("Server Listening on PORT: ", config.api_port);
         });
     });
+
+// Use PM2 - "npm install pm2" and "pm2 start app.js" to run as a background process
