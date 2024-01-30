@@ -1,42 +1,15 @@
-const DataTypes = require("sequelize");
-//const sequelize = new Sequelize()
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const RestockAlertModel = {
-    id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true
-    },
-    product: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: false
-    },
-    email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: false
-    },
-    creationDate: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: false
-    },
-    alertSent: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-        unique: false
-    },
-};
+const RestockAlertSchema = new Schema({
+    product: String,
+    email: String,
+    date: { type: Date, default: Date.now },
+    sent: { type: Boolean, default: false }
+});
 
-module.exports = {
-    initialize: (sequelize) => {
-        this.model = sequelize.define("RestockAlert", RestockAlertModel)
-    },
-    createAlert: (RestockAlert) => {
-        return this.model.create(RestockAlert);
-    },
-    getAlerts: () => {
-        return this.model.findAll();
-    }
-};
+RestockAlertSchema.virtual("url").get(function () {
+    return `/restockAlert/${this._id}`;
+});
+
+module.exports = mongoose.model('RestockAlert', RestockAlertSchema);

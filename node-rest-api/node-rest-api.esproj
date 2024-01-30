@@ -8,6 +8,5 @@
   <ItemGroup>
     <Folder Include="status\controllers\" />
     <Folder Include="restock-alert\" />
-    <Folder Include="common\" />
   </ItemGroup>
 </Project>
