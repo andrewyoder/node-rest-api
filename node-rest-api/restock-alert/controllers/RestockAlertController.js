@@ -3,6 +3,7 @@ const RestockAlertModel = require('../../common/models/RestockAlertModel.js');
 
 module.exports = {
     addRestockAlert: (request, response) => {
+        console.log("addRestockAlert");
         const Schema = mon
         const alert = {
             product: request.body.product,

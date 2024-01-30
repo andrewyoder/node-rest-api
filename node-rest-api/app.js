@@ -20,6 +20,8 @@ const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
 const mongoDB = "mongodb://127.0.0.1/my_database";
 
+const RestockAlertModel = require('./common/models/RestockAlertModel');
+
 main().catch((err) => console.log(err));
 async function main() {
     await mongoose.connect(mongoDB);
@@ -31,7 +33,6 @@ async function main() {
 //    //storage: "./TBD.db"
 //});
 
-const RestockAlertModel = require('./common/models/RestockAlertModel');
 
 //RestockAlertModel.initialize(sequelize);
 
