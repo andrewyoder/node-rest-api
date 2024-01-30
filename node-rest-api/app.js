@@ -24,6 +24,7 @@ const RestockAlertModel = require('./common/models/RestockAlertModel');
 
 main().catch((err) => console.log(err));
 async function main() {
+    console.log("awaiting on mongoose");
     await mongoose.connect(mongoDB);
 }
 
