@@ -2,11 +2,16 @@ const express = require('express');
 const https = require('https');
 const cors = require('cors');
 const config = require('./config');
+const fs = require('fs');
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 
+const httpsOptions = {
+    key: fs.readFileSync('/home/ec2-user/certs/client-key.pem'),
+    cert: fs.readFileSync('/home/ec2-user/certs/client-cert.pem')
+};
 
 // Add Access Control Allow Origin headers
 app.use((req, res, next) => {
@@ -26,7 +31,12 @@ main().catch((err) => console.log(err));
 async function main() {
     console.log("awaiting on mongoose");
     await mongoose.connect(mongoDB);
-    app.listen(config.api_port);
+    //app.listen(config.api_port);
+    https
+        .createServer(httpsOptions, app)
+        .listen(config.api_port, () => {
+            console.log("Server Listening on PORT: ", config.api_port);
+        });
 }
 
 //const Sequelize = require('sequelize');
