@@ -21,6 +21,9 @@ app.use((req, res, next) => {
     next();
 });
 
+app.use("/status", config.StatusRoutes);
+app.use("/restockAlert", config.RestockAlertRoutes);
+
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
 const mongoDB = "mongodb://127.0.0.1/my_database";
