@@ -1,5 +1,6 @@
 const { request, response } = require('express');
 const RestockAlertModel = require('../../common/models/RestockAlertModel.js');
+const JSON = require('json');
 
 module.exports = {
     addRestockAlert: (request, response) => {
