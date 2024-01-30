@@ -1,11 +1,11 @@
 const express = require('express');
 const https = require('https');
-//const cors = require('cors');
+const cors = require('cors');
 const config = require('./config');
 
 const app = express();
 app.use(express.json());
-//app.use(cors());
+app.use(cors());
 
 
 // Add Access Control Allow Origin headers
@@ -26,6 +26,7 @@ main().catch((err) => console.log(err));
 async function main() {
     console.log("awaiting on mongoose");
     await mongoose.connect(mongoDB);
+    app.listen(config.api_port);
 }
 
 //const Sequelize = require('sequelize');
