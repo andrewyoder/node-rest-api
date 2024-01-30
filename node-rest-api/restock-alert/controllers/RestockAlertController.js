@@ -10,11 +10,13 @@ module.exports = {
             product: request.body.product,
             email: request.body.email,
         };
-
+        console.log(alert);
         return response.status(200).json({
             status: true,
             data: JSON.stringify(alert),
         });
+
+
 
         //return RestockAlertModel.createAlert(alert)
         //    .then((alert) => {
