@@ -1,5 +1,6 @@
 const express = require('express');
 const https = require('https');
+const http = require('http');
 const cors = require('cors');
 const config = require('./config');
 const fs = require('fs');
@@ -37,8 +38,13 @@ async function main() {
     //app.listen(config.api_port);
     https
         .createServer(httpsOptions, app)
-        .listen(config.api_port, () => {
-            console.log("Server Listening on PORT: ", config.api_port);
+        .listen(config.api_port_https, () => {
+            console.log("Server Listening on PORT: ", config.api_port_https);
+        });
+    http
+        .createServer(app)
+        .listen(config.api_port_http, () => {
+            console.log("Server Listening on PORT: ", config.api_port_http);
         });
 }
 
