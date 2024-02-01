@@ -10,6 +10,7 @@ module.exports = {
             email: request.query.email,
         };
         console.log(alert);
+        window.close();
         return response.status(200).json({
             status: true,
             data: JSON.stringify(alert),
