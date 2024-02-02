@@ -39,12 +39,12 @@ async function main() {
     https
         .createServer(httpsOptions, app)
         .listen(config.api_port_https, () => {
-            console.log("Server Listening on PORT: ", config.api_port_https);
+            console.log("Listening on HTTPS port: ", config.api_port_https);
         });
     http
         .createServer(app)
         .listen(config.api_port_http, () => {
-            console.log("Server Listening on PORT: ", config.api_port_http);
+            console.log("Listening on HTTP port: ", config.api_port_http);
         });
 }
 
