@@ -9,7 +9,11 @@ module.exports = {
         //    product: request.query.product,
         //    email: request.query.email,
         //};
-        const alert = new RestockAlert(request.query.product, request.query.email);
+        const alert = new RestockAlert({
+            product: request.query.product,
+            email: request.query.email,
+        });
+        //const alert = new RestockAlert(request.query.product, request.query.email);
         console.log(alert);
         //this.window.close();
         return response.status(200).json({
