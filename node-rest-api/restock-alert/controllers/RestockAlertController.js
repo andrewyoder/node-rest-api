@@ -11,10 +11,10 @@ module.exports = {
         });
 
         console.log(alert);
-        await alert.save();
+        alert.save();
 
         return response.status(200).json({
-            status: saveStatus,
+            status: true,
             //data: JSON.stringify(alert),
             message: "Your email has been added -- you may close this window."
             })
