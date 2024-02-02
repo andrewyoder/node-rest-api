@@ -15,11 +15,11 @@ module.exports = {
         });
         //const alert = new RestockAlert(request.query.product, request.query.email);
         console.log(alert);
-        alert("You may close this window.");
         //this.window.close();
         return response.status(200).json({
             status: true,
             data: JSON.stringify(alert),
+            message: "Your email has been added -- you may close this window."
         });
 
 
