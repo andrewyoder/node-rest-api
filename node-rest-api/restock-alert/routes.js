@@ -2,6 +2,6 @@ const router = require('express').Router();
 
 const RestockAlertController = require('./controllers/RestockAlertController');
 
-router.get("/", RestockAlertController.addRestockAlert);
+router.post("/", RestockAlertController.addRestockAlert);
 
 module.exports = router;
