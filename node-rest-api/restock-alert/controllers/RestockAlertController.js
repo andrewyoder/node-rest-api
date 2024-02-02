@@ -16,7 +16,7 @@ module.exports = {
         //const alert = new RestockAlert(request.query.product, request.query.email);
         console.log(alert);
         //this.window.close();
-        response.status(200).body("Your email has been added. You may close this window.");
+        //response.status(200).body("Your email has been added. You may close this window.");
         response.status(200).json({
             status: true,
             data: JSON.stringify(alert),
