@@ -15,10 +15,10 @@ const httpsOptions = {
 };
 
 // Add Access Control Allow Origin headers
-app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Headers", "*");
-    res.setHeader("Access-Control-Allow-Methods", "OPTIONS, GET, POST");
+app.use((request, response, next) => {
+    response.setHeader("Access-Control-Allow-Origin", "*");
+    response.setHeader("Access-Control-Allow-Headers", "*");
+    response.setHeader("Access-Control-Allow-Methods", "OPTIONS, GET, POST");
     next();
 });
 
@@ -27,9 +27,6 @@ app.use("/addRestockAlert", config.RestockAlertRoutes);
 
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
-
-
-const RestockAlertModel = require('./common/models/RestockAlertModel');
 
 main().catch((err) => console.log(err));
 async function main() {
