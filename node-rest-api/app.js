@@ -1,12 +1,18 @@
 const express = require('express');
 const https = require('https');
-//const cors = require('cors');
+const http = require('http');
+const cors = require('cors');
 const config = require('./config');
+const fs = require('fs');
 
 const app = express();
 app.use(express.json());
-//app.use(cors());
+app.use(cors());
 
+const httpsOptions = {
+    key: fs.readFileSync('/home/ec2-user/certs/client-key.pem'),
+    cert: fs.readFileSync('/home/ec2-user/certs/client-cert.pem')
+};
 
 // Add Access Control Allow Origin headers
 app.use((req, res, next) => {
@@ -16,13 +22,30 @@ app.use((req, res, next) => {
     next();
 });
 
+app.use("/status", config.StatusRoutes);
+app.use("/restockAlert", config.RestockAlertRoutes);
+
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
 const mongoDB = "mongodb://127.0.0.1/my_database";
 
+const RestockAlertModel = require('./common/models/RestockAlertModel');
+
 main().catch((err) => console.log(err));
 async function main() {
+    console.log("awaiting on mongoose");
     await mongoose.connect(mongoDB);
+    //app.listen(config.api_port);
+    https
+        .createServer(httpsOptions, app)
+        .listen(config.api_port_https, () => {
+            console.log("Listening on HTTPS port: ", config.api_port_https);
+        });
+    http
+        .createServer(app)
+        .listen(config.api_port_http, () => {
+            console.log("Listening on HTTP port: ", config.api_port_http);
+        });
 }
 
 //const Sequelize = require('sequelize');
@@ -31,7 +54,6 @@ async function main() {
 //    //storage: "./TBD.db"
 //});
 
-const RestockAlertModel = require('./common/models/RestockAlertModel');
 
 //RestockAlertModel.initialize(sequelize);
 

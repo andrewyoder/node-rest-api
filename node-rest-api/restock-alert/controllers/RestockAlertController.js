@@ -2,17 +2,21 @@ const { request, response } = require('express');
 const RestockAlertModel = require('../../common/models/RestockAlertModel.js');
 
 module.exports = {
-    addRestockAlert: (request, response) => {
-        const Schema = mon
+    restockAlert: (request, response) => {
+        console.log("restockAlert");
+        /*const Schema = mongoose.Schema;*/
         const alert = {
-            product: request.body.product,
-            email: request.body.email,
+            product: request.query.product,
+            email: request.query.email,
         };
-
+        console.log(alert);
+        //this.window.close();
         return response.status(200).json({
             status: true,
             data: JSON.stringify(alert),
         });
+
+
 
         //return RestockAlertModel.createAlert(alert)
         //    .then((alert) => {
