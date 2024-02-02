@@ -18,7 +18,7 @@ module.exports = {
         //this.window.close();
         //response.status(200).body("Your email has been added. You may close this window.");
         response.status = 200;
-        reponse.statusText = "Your email has been added. You may close this window.";
+        response.statusText = "Your email has been added. You may close this window.";
         return response;
         return response.status(200).json({
             status: true,
