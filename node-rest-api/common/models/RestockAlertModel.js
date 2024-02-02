@@ -9,7 +9,7 @@ const RestockAlertSchema = new Schema({
 });
 
 RestockAlertSchema.virtual("url").get(function () {
-    return `/restockAlert/${this._id}`;
+    return `/addRestockAlert/${this._id}`;
 });
 
 module.exports = mongoose.model('RestockAlert', RestockAlertSchema);
