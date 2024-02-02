@@ -23,7 +23,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/status", config.StatusRoutes);
-app.use("/restockAlert", config.RestockAlertRoutes);
+app.use("/addRestockAlert", config.RestockAlertRoutes);
 
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
