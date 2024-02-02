@@ -11,18 +11,20 @@ module.exports = {
         });
 
         console.log(alert);
-        alert.save();
 
-        return response.status(200).json({
-            status: true,
-            //data: JSON.stringify(alert),
-            message: "Your email has been added -- you may close this window."
-            })
-            .catch((err) => {
-                return response.status(500).json({
-                    status: false,
-                    error: err,
-                });
+        try {
+            alert.save();
+            response.status(200).json({
+                status: true,
+                //data: JSON.stringify(alert),
+                message: "Your email has been added -- you may close this window."
             });
+        } catch (err) {
+            response.status(500).json({
+                status: false,
+                error: err
+            });
+        };
+        return response;
     }
 }
