@@ -5,9 +5,14 @@ module.exports = {
     addRestockAlert: (request, response) => {
         console.log("restockAlert");
 
+        //const alert = new RestockAlert({
+        //    product: request.query.product,
+        //    email: request.query.email,
+        //});
+
         const alert = new RestockAlert({
-            product: request.query.product,
-            email: request.query.email,
+            product: request.body.product,
+            email: request.body.email,
         });
 
         console.log(alert);
@@ -17,7 +22,7 @@ module.exports = {
             response.status(200).json({
                 status: true,
                 //data: JSON.stringify(alert),
-                message: "Your email has been added -- you may close this window."
+                message: "You're set -- you may close this window."
             });
         } catch (err) {
             response.status(500).json({
