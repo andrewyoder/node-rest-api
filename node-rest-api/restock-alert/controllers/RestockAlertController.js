@@ -23,13 +23,13 @@ module.exports = {
         try {
             alert.save();
             response.status(200).json({
-                status: true,
+                success: true,
                 //data: JSON.stringify(alert),
                 message: "You're set -- you may close this window."
             });
         } catch (err) {
             response.status(500).json({
-                status: false,
+                success: false,
                 error: err
             });
         };
