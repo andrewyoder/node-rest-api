@@ -41,14 +41,14 @@ module.exports = {
 
     getRestockAlerts: (request, response) => {
         try {
+            var result = RestockAlert.find({ sent: false });
             response.status(200).json({
                 status: true,
-                data: JSON.stringify(RestockAlert.find({ sent: false }))
+                data: JSON.stringify(result)
             });
         } catch (err) {
             response.status(500).json({
                 status: false,
-                data: JSON.stringify(RestockAlert.find({ sent: false }))
             });
         }
         return response;
