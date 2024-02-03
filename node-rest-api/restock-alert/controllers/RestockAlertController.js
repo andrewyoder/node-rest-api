@@ -1,5 +1,7 @@
 const { request, response } = require('express');
 const RestockAlert = require('../schemas/RestockAlertSchema.js');
+const mongoose = require('mongoose');
+mongoose.set('useFindAndModify', false);
 
 module.exports = {
 
@@ -31,6 +33,24 @@ module.exports = {
                 error: err
             });
         };
+        return response;
+    },
+
+
+
+
+    getRestockAlerts: (request, response) => {
+        try {
+            response.status(200).json({
+                status: true,
+                data: JSON.stringify(RestockAlert.find({ sent: false }))
+            });
+        } catch (err) {
+            response.status(500).json({
+                status: false,
+                data: JSON.stringify(RestockAlert.find({ sent: false }))
+            });
+        }
         return response;
     }
 }
