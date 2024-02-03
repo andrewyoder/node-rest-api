@@ -1,7 +1,7 @@
 const { request, response } = require('express');
 const RestockAlert = require('../schemas/RestockAlertSchema.js');
-const mongoose = require('mongoose');
-mongoose.set('useFindAndModify', false);
+//const mongoose = require('mongoose');
+//mongoose.set('useFindAndModify', false);
 
 module.exports = {
 
