@@ -8,15 +8,15 @@ module.exports = {
     addRestockAlert: (request, response) => {
         console.log("restockAlert");
 
-        //const alert = new RestockAlert({
-        //    product: request.query.product,
-        //    email: request.query.email,
-        //});
-
         const alert = new RestockAlert({
-            product: request.body.product,
-            email: request.body.email,
+            product: request.query.product,
+            email: request.query.email,
         });
+
+        //const alert = new RestockAlert({
+        //    product: request.body.product,
+        //    email: request.body.email,
+        //});
 
         console.log(alert);
 
