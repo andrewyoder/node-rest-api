@@ -68,7 +68,6 @@ module.exports = {
                 success: false
             });
         }
-        console.log(response);
         return response;
     },
 
