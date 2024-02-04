@@ -13,11 +13,6 @@ module.exports = {
             email: request.query.email,
         });
 
-        //const alert = new RestockAlert({
-        //    product: request.body.product,
-        //    email: request.body.email,
-        //});
-
         console.log(alert);
 
         try {
@@ -36,12 +31,41 @@ module.exports = {
         return response;
     },
 
-
-
-
-    getRestockAlerts: async(request, response) => {
+    getAllUnsentAlerts: async(request, response) => {
         try {
             var result = await RestockAlert.find({ sent: false }).exec();
+            response.status(200).json({
+                success: true,
+                data: JSON.stringify(result)
+            });
+        } catch (err) {
+            response.status(500).json({
+                success: false
+            });
+        }
+        return response;
+    },
+
+    getRestockAlerts: async (request, response) => {
+        var product = request.param.product;
+        try {
+            var result = await RestockAlert.find({ product: product, sent: false }).exec();
+            response.status(200).json({
+                success: true,
+                data: JSON.stringify(result)
+            });
+        } catch (err) {
+            response.status(500).json({
+                success: false
+            });
+        }
+        return response;
+    },
+
+    updateRestockAlerts: async (request, response) => {
+        var product = request.param.product;
+        try {
+            var result = await RestockAlert.updateMany({ product: product, sent: false }, { sent: true }).exec();
             response.status(200).json({
                 success: true,
                 data: JSON.stringify(result)
