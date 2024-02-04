@@ -31,27 +31,34 @@ module.exports = {
         return response;
     },
 
-    getAllUnsentAlerts: async (request, response) => {
-        console.log("getAllUnsentAlerts");
-        try {
-            var result = await RestockAlert.find({ sent: false }).exec();
-            response.status(200).json({
-                success: true,
-                data: JSON.stringify(result)
-            });
-        } catch (err) {
-            response.status(500).json({
-                success: false
-            });
-        }
-        return response;
-    },
+    //getAllUnsentAlerts: async (request, response) => {
+    //    console.log("getAllUnsentAlerts");
+    //    try {
+    //        var result = await RestockAlert.find({ sent: false }).exec();
+    //        response.status(200).json({
+    //            success: true,
+    //            data: JSON.stringify(result)
+    //        });
+    //    } catch (err) {
+    //        response.status(500).json({
+    //            success: false
+    //        });
+    //    }
+    //    return response;
+    //},
 
     getRestockAlerts: async (request, response) => {
         var product = request.query.product;
-        console.log("getRestockAlerts: " + product);
+
         try {
-            var result = await RestockAlert.find({product: product, sent: false }).exec();
+            if (product) {
+                console.log("getAlerts: " + product);
+                var result = await RestockAlert.find({ product: product, sent: false }).exec();
+            }
+            else {
+                console.log("getAllUnsentAlerts");
+                var result = await RestockAlert.find({sent: false }).exec();
+            }
             response.status(200).json({
                 success: true,
                 data: result
@@ -61,6 +68,7 @@ module.exports = {
                 success: false
             });
         }
+        console.log(response);
         return response;
     },
 
