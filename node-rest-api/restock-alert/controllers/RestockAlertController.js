@@ -49,7 +49,7 @@ module.exports = {
     getRestockAlerts: async (request, response) => {
         var product = request.param.product;
         try {
-            var result = await RestockAlert.find(`{ product: ${product}, sent: false }`).exec();
+            var result = await RestockAlert.find({product: product, sent: false }).exec();
             response.status(200).json({
                 success: true,
                 data: result
