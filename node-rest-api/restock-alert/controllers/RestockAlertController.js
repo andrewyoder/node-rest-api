@@ -31,7 +31,8 @@ module.exports = {
         return response;
     },
 
-    getAllUnsentAlerts: async(request, response) => {
+    getAllUnsentAlerts: async (request, response) => {
+        console.log("getAllUnsentAlerts");
         try {
             var result = await RestockAlert.find({ sent: false }).exec();
             response.status(200).json({
@@ -48,6 +49,7 @@ module.exports = {
 
     getRestockAlerts: async (request, response) => {
         var product = request.param.product;
+        console.log("getRestockAlerts: " + product);
         try {
             var result = await RestockAlert.find({product: product, sent: false }).exec();
             response.status(200).json({
@@ -64,6 +66,7 @@ module.exports = {
 
     updateRestockAlerts: async (request, response) => {
         var product = request.param.product;
+        console.log("updateRestockAlerts: " + product);
         try {
             var result = await RestockAlert.updateMany({ product: product, sent: false }, { sent: true }).exec();
             response.status(200).json({
