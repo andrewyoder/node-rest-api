@@ -52,7 +52,7 @@ module.exports = {
             var result = await RestockAlert.find(`{ product: ${product}, sent: false }`).exec();
             response.status(200).json({
                 success: true,
-                data: JSON.stringify(result)
+                data: result
             });
         } catch (err) {
             response.status(500).json({
