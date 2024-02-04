@@ -48,7 +48,7 @@ module.exports = {
     },
 
     getRestockAlerts: async (request, response) => {
-        var product = request.param.product;
+        var product = request.query.product;
         console.log("getRestockAlerts: " + product);
         try {
             var result = await RestockAlert.find({product: product, sent: false }).exec();
@@ -65,7 +65,7 @@ module.exports = {
     },
 
     updateRestockAlerts: async (request, response) => {
-        var product = request.param.product;
+        var product = request.query.product;
         console.log("updateRestockAlerts: " + product);
         try {
             var result = await RestockAlert.updateMany({ product: product, sent: false }, { sent: true }).exec();
