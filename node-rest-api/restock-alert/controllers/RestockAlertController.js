@@ -51,15 +51,18 @@ module.exports = {
             console.log("getAllUnsentAlerts");
             var result = await RestockAlert.find({sent: false }).exec();
         }
- 
+
         var emailList = new Array();
+        var productList = new Array();
         result.forEach((entry) => {
             emailList.push(entry.email);
+            productList.push(entry.product);
         });
         return response.status(200).json({
             success: true,
             product: productName,
-            data: emailList
+            emails: emailList,
+            products: productList
         });;
     },
 
