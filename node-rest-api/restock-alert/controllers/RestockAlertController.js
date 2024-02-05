@@ -11,8 +11,8 @@ module.exports = {
         console.log("restockAlert");
 
         const alert = new RestockAlert({
-            product: request.query.product,
-            email: request.query.email,
+            product: (request.query.product).toLowerCase(),
+            email: (request.query.email).toLowerCase()
         });
 
         console.log(alert);
