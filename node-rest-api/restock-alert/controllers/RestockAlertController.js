@@ -52,9 +52,9 @@ module.exports = {
             var result = await RestockAlert.find({sent: false }).exec();
         }
  
-        var emailList = [];
+        var emailList = new Array();
         result.forEach((entry) => {
-            emailList.append(entry.email);
+            emailList.push(entry.email);
         });
         return response.status(200).json({
             success: true,
