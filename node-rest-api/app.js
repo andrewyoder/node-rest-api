@@ -27,7 +27,7 @@ app.use("/restockAlert", config.RestockAlertRoutes);
 
 // Set 'views' directory for any views 
 // being rendered res.render()
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', 'views/'));
 // Set view engine as EJS
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
