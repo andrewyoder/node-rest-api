@@ -25,6 +25,7 @@ app.use((request, response, next) => {
 app.use("/status", config.StatusRoutes);
 app.use("/restockAlert", config.RestockAlertRoutes);
 
+app.set("view engine", "ejs");
 
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
