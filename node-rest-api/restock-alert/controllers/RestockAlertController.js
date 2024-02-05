@@ -1,5 +1,6 @@
 const { request, response } = require('express');
 const RestockAlert = require('../schemas/RestockAlertSchema.js');
+const formidable = require('formidable');
 
 //const mongoose = require('mongoose');
 //mongoose.set('useFindAndModify', false);
@@ -33,10 +34,13 @@ module.exports = {
     },
 
     getRestockAlerts: async (request, response) => {
-        //console.log();
-        console.log(request);
-        //var product = formData.product;
-        var productName = request.formData().get('product');
+        const form = formidable({ muldiples: true });
+        form.parse(req, (err, fields, files) => {
+            var body = fields;
+        });
+
+        console.log(body)    
+        var productName = body.product;
         //var productName = request.body.product;
 
         try {
