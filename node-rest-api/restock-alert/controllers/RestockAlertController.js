@@ -33,14 +33,9 @@ module.exports = {
     },
 
     getRestockAlerts: async (request, response) => {
-        //const form = formidable({ multiples: true });
-        //form.parse(req, (err, fields, files) => {
-        //    var body = fields;
-        //});
 
         console.log(request.body)
         var productName = (request.body.product).toLowerCase();
-        //var productName = request.body.product;
 
         if (productName) {
             console.log("getAlerts: " + productName);
@@ -81,20 +76,4 @@ module.exports = {
         }
         return response;
     }
-
-        //getAllUnsentAlerts: async (request, response) => {
-    //    console.log("getAllUnsentAlerts");
-    //    try {
-    //        var result = await RestockAlert.find({ sent: false }).exec();
-    //        response.status(200).json({
-    //            success: true,
-    //            data: JSON.stringify(result)
-    //        });
-    //    } catch (err) {
-    //        response.status(500).json({
-    //            success: false
-    //        });
-    //    }
-    //    return response;
-    //},
 }

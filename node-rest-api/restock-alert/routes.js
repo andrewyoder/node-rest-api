@@ -3,7 +3,6 @@ const router = require('express').Router();
 const RestockAlertController = require('./controllers/RestockAlertController');
 
 router.get("/add", RestockAlertController.addRestockAlert);
-//router.get("/get", RestockAlertController.getAllUnsentAlerts);
 router.post("/", RestockAlertController.getRestockAlerts);
 router.get("/update", RestockAlertController.updateRestockAlerts);
 
