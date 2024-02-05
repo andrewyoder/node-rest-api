@@ -1,5 +1,6 @@
 const { request, response } = require('express');
 const RestockAlert = require('../schemas/RestockAlertSchema.js');
+
 //const mongoose = require('mongoose');
 //mongoose.set('useFindAndModify', false);
 
@@ -33,9 +34,9 @@ module.exports = {
 
     getRestockAlerts: async (request, response) => {
         //console.log();
-        console.log(request.body);
+        console.log(request);
         //var product = formData.product;
-        var productName = new FormData(request).product;
+        var productName = request.formData().get('product');
         //var productName = request.body.product;
 
         try {
