@@ -58,7 +58,7 @@ module.exports = {
         });
         return response.status(200).json({
             success: true,
-            product: product,
+            product: productName,
             data: emailList
         });;
     },
