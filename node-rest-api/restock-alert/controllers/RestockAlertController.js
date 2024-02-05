@@ -31,34 +31,16 @@ module.exports = {
         return response;
     },
 
-    //getAllUnsentAlerts: async (request, response) => {
-    //    console.log("getAllUnsentAlerts");
-    //    try {
-    //        var result = await RestockAlert.find({ sent: false }).exec();
-    //        response.status(200).json({
-    //            success: true,
-    //            data: JSON.stringify(result)
-    //        });
-    //    } catch (err) {
-    //        response.status(500).json({
-    //            success: false
-    //        });
-    //    }
-    //    return response;
-    //},
-
     getRestockAlerts: async (request, response) => {
-        //response.render('alerts', { title: "Get Emails" });
-
         //console.log();
         console.log(request.body);
         //var product = formData.product;
-        var product = request.body.product;
+        var productName = request.body.product-name;
 
         try {
-            if (product) {
-                console.log("getAlerts: " + product);
-                var result = await RestockAlert.find({ product: product, sent: false }).exec();
+            if (productName) {
+                console.log("getAlerts: " + productName);
+                var result = await RestockAlert.find({ product: productName, sent: false }).exec();
             }
             else {
                 console.log("getAllUnsentAlerts");
@@ -92,4 +74,20 @@ module.exports = {
         }
         return response;
     }
+
+        //getAllUnsentAlerts: async (request, response) => {
+    //    console.log("getAllUnsentAlerts");
+    //    try {
+    //        var result = await RestockAlert.find({ sent: false }).exec();
+    //        response.status(200).json({
+    //            success: true,
+    //            data: JSON.stringify(result)
+    //        });
+    //    } catch (err) {
+    //        response.status(500).json({
+    //            success: false
+    //        });
+    //    }
+    //    return response;
+    //},
 }

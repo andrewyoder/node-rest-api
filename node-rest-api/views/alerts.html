@@ -4,13 +4,12 @@
 <head>
     <meta charset="utf-8" />
     <title>Get Emails</title>
-    <script src="js/alerts.js"></script>
 </head>
 <body>
 
     <h2>Get Emails</h2>
     <product-form>
-        <form>
+        <form action="restockAlert" method="post">
             <p>
                 <label for="product-name">Product Name</label>
                 <input type="text" name="product-name" id="product-name" />
@@ -20,7 +19,7 @@
                 <input type="text" name="password" id="password" />
             </p>
             <p>
-                <input type="button" name="submitBtn" id="submitBtn"/>
+                <button type="submit">Submit</button>
             </p>
         </form>
     </product-form>

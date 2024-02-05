@@ -21,15 +21,15 @@ if (!customElements.get('product-form')) {
             const request = {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'text/json',
+                    'Content-Type': 'text/html',
                     'Upgrade-Insecure-Requests': 0,
-                    'Accept': `text/javascript`,
+                    'Accept': `text/html`,
                     'X-Requested-With': 'XMLHttpRequest'
                 },
                 body: JSON.stringify(reqBody)
             };
 
-            var api_url = '/restockAlert/';
+            var api_url = '/restockAlert/get';
 
             fetch(api_url, request);
         }
