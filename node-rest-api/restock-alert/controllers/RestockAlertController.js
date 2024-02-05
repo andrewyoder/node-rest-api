@@ -50,7 +50,7 @@ module.exports = {
     getRestockAlerts: async (request, response) => {
         //response.render('alerts', { title: "Get Emails" });
 
-        console.log();
+        //console.log();
         console.log(request.body);
         //var product = formData.product;
         var product = request.body.product;

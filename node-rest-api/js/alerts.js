@@ -27,7 +27,7 @@ if (!customElements.get('product-form')) {
                 body: JSON.stringify(reqBody)
             };
 
-            var api_url = 'restockAlert/add';
+            var api_url = '/restockAlert/';
 
             fetch(api_url, request);
         }

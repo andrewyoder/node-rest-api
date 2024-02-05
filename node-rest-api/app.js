@@ -25,12 +25,9 @@ app.use((request, response, next) => {
 app.use("/status", config.StatusRoutes);
 app.use("/restockAlert", config.RestockAlertRoutes);
 
-// Set 'views' directory for any views 
-// being rendered res.render()
-app.set('views', 'views/');
-// Set view engine as EJS
-app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'html');
+express.Router().get("/", (req, res) => {
+    res.render('alerts', { title: "Get Emails" });
+});
 
 
 const mongoose = require("mongoose");
