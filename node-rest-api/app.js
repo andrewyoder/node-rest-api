@@ -5,10 +5,12 @@ const cors = require('cors');
 const config = require('./config');
 const fs = require('fs');
 const path = require('path');
+const bodyParser = require('body-parser');
 
 const app = express();
 app.use(express.json());
 app.use(cors());
+app.use(bodyParser.json());
 
 const httpsOptions = {
     key: fs.readFileSync('/home/ec2-user/certs/client-key.pem'),
