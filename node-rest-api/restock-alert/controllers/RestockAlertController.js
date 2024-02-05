@@ -43,25 +43,24 @@ module.exports = {
         var productName = request.body.product;
         //var productName = request.body.product;
 
-        try {
-            if (productName) {
-                console.log("getAlerts: " + productName);
-                var result = await RestockAlert.find({ product: productName, sent: false }).exec();
-            }
-            else {
-                console.log("getAllUnsentAlerts");
-                var result = await RestockAlert.find({sent: false }).exec();
-            }
-            response.status(200).json({
-                success: true,
-                data: result
-            });
-        } catch (err) {
-            response.status(500).json({
-                success: false
-            });
+        if (productName) {
+            console.log("getAlerts: " + productName);
+            var result = await RestockAlert.find({ product: productName, sent: false }).exec();
         }
-        return response;
+        else {
+            console.log("getAllUnsentAlerts");
+            var result = await RestockAlert.find({sent: false }).exec();
+        }
+ 
+        var emailList = [];
+        result.forEach((entry) => {
+            emailList.append(entry.email);
+        });
+        return response.status(200).json({
+            success: true,
+            product: product,
+            data: emailList
+        });;
     },
 
     updateRestockAlerts: async (request, response) => {
