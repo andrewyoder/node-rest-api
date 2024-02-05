@@ -48,7 +48,8 @@ module.exports = {
     //},
 
     getRestockAlerts: async (request, response) => {
-        var product = FormData.product;
+        var formData = FormData(request);
+        var product = formData.product;
 
         try {
             if (product) {
