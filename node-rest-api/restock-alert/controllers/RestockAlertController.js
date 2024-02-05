@@ -34,7 +34,7 @@ module.exports = {
     },
 
     getRestockAlerts: async (request, response) => {
-        const form = formidable({ muldiples: true });
+        const form = formidable({ multiples: true });
         form.parse(req, (err, fields, files) => {
             var body = fields;
         });
