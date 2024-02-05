@@ -3,46 +3,24 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Restock Alerts</title>    
+    <title>Get Emails</title>    
 </head>
 <body>
 
     <h2>Get Emails</h2>
-    <form id="get-emails-form">
+    <product-form name="product-form">
         <p>
-            <label for="product_name">Product Name</label>
-            <input type="text" name="product_name" id="product_name" />
+            <label for="product-name">Product Name</label>
+            <input type="text" name="product-name" id="product-name" />
         </p>
         <p>
             <label for="password">Password</label>
             <input type="text" name="password" id="password" />
         </p>
         <p>
-            <script>
-                function getEmailsForm() {
-                    var productName = document.getElementById('product_name').value;
-
-                    console.log("getEmailsForm() - product: " + productName);
-
-                    var request = new Request({
-                        method: "POST",
-                        body: {
-                            product: productName
-                        }
-                    });
-
-                    request.headers = {
-                        'content-type': 'text/javascript'
-                    };
-
-                    console.log("request: " + request);
-
-                    fetch('/restockAlert/get', request);
-                }
-            </script>
-            <input type="button" id="submitBtn" onclick="getEmailsForm()"/>
+            <button type="submit" name="submitBtn" id="submitBtn">Submit</button>
         </p>
-    </form>
+    </product-form>
 
 
 </body>
