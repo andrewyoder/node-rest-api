@@ -7,6 +7,5 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="status\controllers\" />
-    <Folder Include="restock-alert\" />
   </ItemGroup>
 </Project>

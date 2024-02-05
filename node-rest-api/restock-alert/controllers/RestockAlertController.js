@@ -1,35 +1,79 @@
 const { request, response } = require('express');
-const RestockAlertModel = require('../../common/models/RestockAlertModel.js');
+const RestockAlert = require('../schemas/RestockAlertSchema.js');
 
 module.exports = {
-    restockAlert: (request, response) => {
+
+    addRestockAlert: (request, response) => {
         console.log("restockAlert");
-        /*const Schema = mongoose.Schema;*/
-        const alert = {
-            product: request.query.product,
-            email: request.query.email,
-        };
-        console.log(alert);
-        //this.window.close();
-        return response.status(200).json({
-            status: true,
-            data: JSON.stringify(alert),
+
+        var lowerProd = request.query.product.toLowerCase();
+        var lowerEmail = request.query.email.toLowerCase();
+
+        const alert = new RestockAlert({
+            product: lowerProd,
+            email: lowerEmail
         });
 
+        console.log(alert);
 
+        try {
+            alert.save();
+            response.status(200).json({
+                success: true,
+                //data: JSON.stringify(alert),
+                message: "You're set -- you may close this window."
+            });
+        } catch (err) {
+            response.status(500).json({
+                success: false,
+                error: err
+            });
+        };
+        return response;
+    },
 
-        //return RestockAlertModel.createAlert(alert)
-        //    .then((alert) => {
-        //        return response.status(200).json({
-        //            status: true,
-        //            data: alert.toJSON(),
-        //        });
-        //    })
-        //    .catch((err) => {
-        //        return response.status(500).json({
-        //            status: false,
-        //            error: err,
-        //        });
-        //    });
+    getRestockAlerts: async (request, response) => {
+
+        console.log(request.body)
+        var productName = (request.body.product).toLowerCase();
+
+        if (productName) {
+            console.log("getAlerts: " + productName);
+            var result = await RestockAlert.find({ product: productName, sent: false }).exec();
+        }
+        else {
+            console.log("getAllUnsentAlerts");
+            var result = await RestockAlert.find({sent: false }).exec();
+        }
+
+        var emailList = new Array();
+        var productList = new Array();
+        result.forEach((entry) => {
+            emailList.push(entry.email);
+            productList.push(entry.product);
+        });
+        return response.status(200).json({
+            success: true,
+            product: productName,
+            emails: emailList,
+            products: productList
+        });;
+    },
+
+    updateRestockAlerts: async (request, response) => {
+        var product = request.query.product;
+        console.log("updateRestockAlerts: " + product);
+        try {
+            var result = await RestockAlert.updateMany({ product: product, sent: false }, { sent: true }).exec();
+            response.status(200).json({
+                success: true,
+                data: JSON.stringify(result)
+            });
+        } catch (err) {
+            response.status(500).json({
+                success: false
+            });
+        }
+        return response;
     }
 }
