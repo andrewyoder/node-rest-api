@@ -25,6 +25,11 @@ app.use((request, response, next) => {
 app.use("/status", config.StatusRoutes);
 app.use("/restockAlert", config.RestockAlertRoutes);
 
+// set view engine as html/ejs and use views/ directory
+app.set('views', 'views/');
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
+
 app.use("/", express.Router().get("/", (req, res) => {
     res.render('alerts', { title: "Get Emails" });
 }));
