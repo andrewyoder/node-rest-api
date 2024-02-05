@@ -19,9 +19,9 @@ if (!customElements.get('product-form')) {
             const request = {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'text/json',
                     'Upgrade-Insecure-Requests': 0,
-                    'Accept': `application/javascript`,
+                    'Accept': `text/javascript`,
                     'X-Requested-With': 'XMLHttpRequest'
                 },
                 body: JSON.stringify(reqBody)
