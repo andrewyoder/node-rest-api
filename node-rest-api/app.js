@@ -25,9 +25,9 @@ app.use((request, response, next) => {
 app.use("/status", config.StatusRoutes);
 app.use("/restockAlert", config.RestockAlertRoutes);
 
-express.Router().get("/", (req, res) => {
+app.use("/", express.Router().get("/", (req, res) => {
     res.render('alerts', { title: "Get Emails" });
-});
+}));
 
 
 const mongoose = require("mongoose");
