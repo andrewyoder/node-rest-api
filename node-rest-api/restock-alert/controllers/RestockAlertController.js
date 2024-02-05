@@ -6,10 +6,10 @@ module.exports = {
     addRestockAlert: (request, response) => {
         console.log("restockAlert");
 
-        var lowerProd = request.query.product;
-        lowerProd = lowerProd.toLowerCase();
-        var lowerEmail = request.query.email;
-        lowerEmail = lowerEmail.toLowerCase();
+        var lowerProd = request.query.product.toLowerCase();
+        //lowerProd = lowerProd.toLowerCase();
+        var lowerEmail = request.query.email.toLowerCase();
+        //lowerEmail = lowerEmail.toLowerCase();
 
         const alert = new RestockAlert({
             product: lowerProd,
