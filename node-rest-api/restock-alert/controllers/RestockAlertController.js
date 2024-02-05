@@ -51,6 +51,7 @@ module.exports = {
         console.log();
         console.log(request.body);
         //var product = formData.product;
+        var product = request.body.product;
 
         try {
             if (product) {
