@@ -24,7 +24,7 @@
 
                     console.log("getEmailsForm() - product: " + productName);
 
-                    var request = new Request('/restockAlert/get', {
+                    var request = new Request({
                         method: "POST",
                         body: {
                             product: productName
@@ -37,10 +37,10 @@
 
                     console.log("request: " + request);
 
-                    fetch(request);
+                    fetch('/restockAlert/get', request);
                 }
             </script>
-            <button id="submitBtn" onclick="getEmailsForm()">Submit</button>
+            <input type="button" id="submitBtn" onclick="getEmailsForm()"/>
         </p>
     </form>
 
