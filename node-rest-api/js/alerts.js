@@ -23,7 +23,7 @@ if (!customElements.get('product-form')) {
                 headers: {
                     'Content-Type': 'text/html',
                     'Upgrade-Insecure-Requests': 0,
-                    'Accept': `text/html`,
+                    'Accept': `application/x-www-form-urlencoded`,
                     'X-Requested-With': 'XMLHttpRequest'
                 },
                 body: JSON.stringify(reqBody)

@@ -35,7 +35,8 @@ module.exports = {
         //console.log();
         console.log(request.body);
         //var product = formData.product;
-        var productName = request.body.product;
+        var productName = new FormData(request).product;
+        //var productName = request.body.product;
 
         try {
             if (productName) {
