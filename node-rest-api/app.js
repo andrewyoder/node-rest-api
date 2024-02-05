@@ -40,7 +40,6 @@ mongoose.set("strictQuery", false);
 
 main().catch((err) => console.log(err));
 async function main() {
-    console.log("awaiting on mongoose");
     await mongoose.connect(config.connection_string);
     https
         .createServer(httpsOptions, app)
