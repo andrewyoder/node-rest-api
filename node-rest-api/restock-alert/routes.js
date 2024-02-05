@@ -4,7 +4,7 @@ const RestockAlertController = require('./controllers/RestockAlertController');
 
 router.get("/add", RestockAlertController.addRestockAlert);
 //router.get("/get", RestockAlertController.getAllUnsentAlerts);
-router.get("/", RestockAlertController.getRestockAlerts);
+router.post("/", RestockAlertController.getRestockAlerts);
 router.get("/update", RestockAlertController.updateRestockAlerts);
 
 /* GET home page. */
