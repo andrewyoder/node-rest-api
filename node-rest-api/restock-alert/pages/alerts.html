@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Restock Alerts</title>
+</head>
+<body>
+
+    <script src="../controllers/RestockAlertController.js"></script>
+
+    <h2>Get Emails</h2>
+    <form action="http://api.wookplugs.com:3000/restockAlerts/get" method="post">
+        <p>
+            <label for="product_name">Product Name</label>
+            <input type="text" name="product" id="product_name" />
+        </p>
+        <p>
+            <label for="product_name">Password</label>
+            <input type="text" name="password" id="password" />
+        </p>
+        <p>
+            <input type="submit" name="submit" id="submit" />
+        </p>
+    </form>
+
+
+</body>
+</html>
