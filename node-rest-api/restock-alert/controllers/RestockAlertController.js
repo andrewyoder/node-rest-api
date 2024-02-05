@@ -11,8 +11,8 @@ module.exports = {
         console.log("restockAlert");
 
         const alert = new RestockAlert({
-            product: request.query.product,
-            email: request.query.email,
+            product: (request.query.product).toLowerCase(),
+            email: (request.query.email).toLowerCase()
         });
 
         console.log(alert);
@@ -39,8 +39,8 @@ module.exports = {
         //    var body = fields;
         //});
 
-        console.log(request.body)    
-        var productName = request.body.product;
+        console.log(request.body)
+        var productName = (request.body.product).toLowerCase();
         //var productName = request.body.product;
 
         if (productName) {
