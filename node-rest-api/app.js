@@ -25,6 +25,11 @@ app.use((request, response, next) => {
 app.use("/status", config.StatusRoutes);
 app.use("/restockAlert", config.RestockAlertRoutes);
 
+/* GET page. */
+router.get("/get-emails", function (req, res) {
+    res.render("alerts", { title: "Get Emails" });
+});
+
 
 
 const mongoose = require("mongoose");
