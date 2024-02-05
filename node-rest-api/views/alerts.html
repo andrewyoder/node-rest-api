@@ -7,9 +7,11 @@
 </head>
 <body>
 
- 
+    <script src="alerts.js"></script>
+
     <h2>Get Emails</h2>
-    <form action="/restockAlert/get" method="post">
+    <!--  action="/restockAlert/get" method="post" -->
+    <form id="get-emails-form">
         <p>
             <label for="product_name">Product Name</label>
             <input type="text" name="product" id="product_name" />
@@ -19,7 +21,7 @@
             <input type="text" name="password" id="password" />
         </p>
         <p>
-            <input type="submit" name="submit" id="submit" />
+            <input type="submit" name="submit" id="submit" onclick="getEmailsForm()"/>
         </p>
     </form>
 
