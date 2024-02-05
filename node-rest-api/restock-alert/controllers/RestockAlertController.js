@@ -1,18 +1,19 @@
 const { request, response } = require('express');
 const RestockAlert = require('../schemas/RestockAlertSchema.js');
-//const formidable = require('formidable');
-
-//const mongoose = require('mongoose');
-//mongoose.set('useFindAndModify', false);
 
 module.exports = {
 
     addRestockAlert: (request, response) => {
         console.log("restockAlert");
 
+        var lowerProd = request.query.product;
+        lowerProd = lowerProd.toLowerCase();
+        var lowerEmail = request.query.email;
+        lowerEmail = lowerEmail.toLowerCase();
+
         const alert = new RestockAlert({
-            product: (request.query.product).toLowerCase(),
-            email: (request.query.email).toLowerCase()
+            product: lowerProd,
+            email: lowerEmail
         });
 
         console.log(alert);
