@@ -48,7 +48,7 @@ module.exports = {
     //},
 
     getRestockAlerts: async (request, response) => {
-        response.render('alerts', { title: "Get Emails" });
+        //response.render('alerts', { title: "Get Emails" });
 
         console.log();
         console.log(request.body);
