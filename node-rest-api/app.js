@@ -35,9 +35,6 @@ app.set('views', 'views/');
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
-//app.use("/", express.Router().get("/", (req, res) => {
-//    res.render('alerts', { title: "Get Emails" });
-//}));
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, './views/alerts.html'));
 });
