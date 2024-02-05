@@ -3,8 +3,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Restock Alerts</title>
-    <script type="text/javascript" src="./alerts.js"></script>
+    <title>Restock Alerts</title>    
 </head>
 <body>
 
@@ -19,6 +18,28 @@
             <input type="text" name="password" id="password" />
         </p>
         <p>
+            <script>
+                function getEmailsForm() {
+                    var productName = document.getElementById('product_name');
+
+                    console.log("getEmailsForm() - product: " + productName);
+
+                    var request = new Request('/restockAlert/get', {
+                        method: "POST",
+                        body: {
+                            product: productName
+                        }
+                    });
+
+                    request.headers = {
+                        'content-type': 'text/javascript'
+                    };
+
+                    console.log("request: " + request);
+
+                    fetch(request);
+                }
+            </script>
             <button id="submitBtn" onclick="getEmailsForm()">Submit</button>
         </p>
     </form>

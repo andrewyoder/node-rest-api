@@ -10,6 +10,10 @@ function getEmailsForm() {
         }
     });
 
+    request.headers = {
+        'content-type': 'text/javascript'
+    };
+
     console.log("request: " + request);
 
     fetch(request);
