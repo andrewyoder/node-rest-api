@@ -30,7 +30,7 @@ module.exports = {
                 error: err
             });
         };
-        return response.sendFile(path.join(__dirname, '../../resources/chewbacca.jpg'));
+        return response.sendFile(path.join(__dirname, '../../views/notify.html'));
         //response.render('../../resources/chewbacca.jpg');
         //return response;
     },
