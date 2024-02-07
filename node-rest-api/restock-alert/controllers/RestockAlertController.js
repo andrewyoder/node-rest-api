@@ -19,18 +19,18 @@ module.exports = {
 
         try {
             alert.save();
-            response.status(200).json({
-                success: true,
-                //data: JSON.stringify(alert),
-                message: "You're set -- you may close this window."
-            });
+            //response.status(200).json({
+            //    success: true,
+            //    //data: JSON.stringify(alert),
+            //    message: "You're set -- you may close this window."
+            //});
         } catch (err) {
             response.status(500).json({
                 success: false,
                 error: err
             });
         };
-        response.sendFile(path.join(__dirname, '../../resources/chewbacca.jpg'));
+        return response.render(path.join(__dirname, '../../resources/chewbacca.jpg'));
         //response.render('../../resources/chewbacca.jpg');
         //return response;
     },
