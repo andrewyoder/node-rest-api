@@ -20,12 +20,12 @@ const httpsOptions = {
 };
 
 // Add Access Control Allow Origin headers
-app.use((request, response, next) => {
-    response.setHeader("Access-Control-Allow-Origin", "*");
-    response.setHeader("Access-Control-Allow-Headers", "*");
-    response.setHeader("Access-Control-Allow-Methods", "OPTIONS, GET, POST");
-    next();
-});
+//app.use((request, response, next) => {
+//    response.setHeader("Access-Control-Allow-Origin", "*");
+//    response.setHeader("Access-Control-Allow-Headers", "*");
+//    response.setHeader("Access-Control-Allow-Methods", "OPTIONS, GET, POST");
+//    next();
+//});
 
 app.use("/status", config.StatusRoutes);
 app.use("/restockAlert", config.RestockAlertRoutes);
