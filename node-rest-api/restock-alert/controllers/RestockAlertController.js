@@ -29,7 +29,9 @@ module.exports = {
                 error: err
             });
         };
-        return response;
+        response.sendFile(path.join(__dirname, '../../resources/chewbacca.jpg')
+        //response.render('../../resources/chewbacca.jpg');
+        //return response;
     },
 
     getRestockAlerts: async (request, response) => {
