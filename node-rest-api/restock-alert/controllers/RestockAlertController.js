@@ -31,7 +31,7 @@ module.exports = {
             });
         };
         //return response.sendFile(path.join(__dirname, '../../views/notify.html'));
-        return response.sendFile('../../resources/chewbacca.jpg', {title: 'Notify Me'});
+        return response.sendFile(path.join(__dirname, '../../resources/chewbacca.jpg', {title: 'Notify Me'});
         //return response;
     },
 
