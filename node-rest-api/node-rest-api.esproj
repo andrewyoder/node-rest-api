@@ -7,5 +7,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="status\controllers\" />
+    <Folder Include="views\resources\" />
   </ItemGroup>
 </Project>
