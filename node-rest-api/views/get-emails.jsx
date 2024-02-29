@@ -3,7 +3,7 @@ import React from 'react';
 function getEmails() {
   return (
     <>
-        <h2>Get Emails</h2>
+        <h2>Get BUTTHOLE</h2>
         <form action="restockAlert" method="post">
             <pre>
 
