@@ -1,6 +1,6 @@
 export default function getEmails() {
   return (
-    <div>
+    <EmailForm>
         <h2>Get Emails (JSX)</h2>
         <form action="restockAlert" method="post">
             <pre>
@@ -15,6 +15,6 @@ export default function getEmails() {
 
             </pre>
         </form>
-    </div>
+    </EmailForm>
   );
 }
