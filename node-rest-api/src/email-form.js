@@ -1,9 +1,7 @@
-import React from 'react';
-
-function getEmails() {
+export default function getEmails() {
   return (
-    <>
-        <h2>Get BUTTHOLE</h2>
+    <div>
+        <h2>Get Emails (JSX)</h2>
         <form action="restockAlert" method="post">
             <pre>
 
@@ -17,8 +15,6 @@ function getEmails() {
 
             </pre>
         </form>
-    </>
+    </div>
   );
 }
-
-export default getEmails;
